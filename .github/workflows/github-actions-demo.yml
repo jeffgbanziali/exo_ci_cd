@@ -2,7 +2,7 @@ name: Python Job Demo
 on:
   schedule:
     - cron: '* * * * *'
-  workflow_dispatch: cle
+  workflow_dispatch: 
 jobs:
   Run-Python:
     runs-on: self-hosted
