@@ -2,12 +2,11 @@ name: Python Job Demo
 on:
   schedule:
     - cron: '* * * * *'
-  workflow_dispatch: 
-jobs: 
-  Run-Python:
-  
-    runs-on: self-hosted
+  workflow_dispatch:
 
+jobs:
+  Run-Python:
+    runs-on: self-hosted
     steps:
       - name: Checkout repository code
         uses: actions/checkout@v4
