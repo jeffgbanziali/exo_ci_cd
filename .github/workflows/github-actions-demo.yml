@@ -1,15 +1,20 @@
-name: Python Job Demo
+name: Artifact Demo
 on:
-  schedule:
-    - cron: '* * * * *'
   workflow_dispatch:
+  push:
 
 jobs:
-  Run-Python:
+  Build-and-Store:
     runs-on: self-hosted
     steps:
       - name: Checkout repository code
         uses: actions/checkout@v4
 
-      - name: Run Python script
-        run: python job.py
+      - name: Creer un fichier texte avec redirection
+        run: echo "Ceci est un rapport genere par la CI le $(Get-Date)" > output.txt
+
+      - name: Sauvegarder le fichier comme artefact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rapport-execution
+          path: output.txt
