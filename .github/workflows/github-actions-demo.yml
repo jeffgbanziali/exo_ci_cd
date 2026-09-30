@@ -4,5 +4,8 @@ jobs:
   Run-Python:
     runs-on: self-hosted
     steps:
-      - name: Run script without checkout
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: Run Python script
         run: python job.py
