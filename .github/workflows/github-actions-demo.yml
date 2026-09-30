@@ -1,5 +1,7 @@
 name: Python Job Demo
-on: [push]
+on:
+  workflow_dispatch:
+
 jobs:
   Run-Python:
     runs-on: self-hosted
