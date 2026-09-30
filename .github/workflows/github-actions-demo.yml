@@ -1,7 +1,8 @@
 name: Python Job Demo
 on:
-  workflow_dispatch:
-
+  schedule:
+    - cron: '* * * * *'
+  workflow_dispatch: cle
 jobs:
   Run-Python:
     runs-on: self-hosted
