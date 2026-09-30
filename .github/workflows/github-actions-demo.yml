@@ -13,8 +13,8 @@ jobs:
       - name: Creer un fichier texte avec redirection
         run: echo "Ceci est un rapport genere par la CI le $(Get-Date)" > output.txt
 
-      - name: Sauvegarder le fichier comme artefact
-        uses: actions/upload-artifact@v4
-        with:
-          name: rapport-execution
-          path: output.txt
+      - name: Sauvegarder localement l'artefact sur la machine
+        run: |
+          New-Item -ItemType Directory -Path "C:\artifacts" -Force
+          Copy-Item output.txt -Destination "C:\artifacts\rapport-execution.txt"
+          Write-Host "Fichier sauvegarde dans C:\artifacts\rapport-execution.txt"
